@@ -1,5 +1,11 @@
 # Illegal-pollution
 
+## 运行方法
+
+```sh
+source env/bin/activate
+python manage.py runserver
+```
 
 # 企业污染排放违法行为实时风险评估系统
 

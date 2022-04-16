@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>企业污染排放违法行为实时风险评估系统</title>
+    </head>
+
+    <body>
+        <!-- List of uploaded documents -->
+        {% if outpath %}
+            结果文件:
+            <ul>
+                <!-- {% for document in outpath %} -->
+                    <li><a href="{{ outpath }}">{{ outpath }}</a></li>
+                <!-- {% endfor %} -->
+            </ul>
+        {% else %}
+            <p>No documents.</p>
+        {% endif %}
+
+        <!-- Upload form. Note enctype attribute! -->
+        <form action="{% url "my-view" %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ message }}
+            <p>{{ form.non_field_errors }}</p>
+
+            <p>{{ form.docfile.label_tag }} {{ form.docfile.help_text }}</p>
+
+            <p>
+                {{ form.docfile.errors }}
+                {{ form.docfile }}
+            </p>
+
+            <p><input type="submit" value="Upload"/></p>
+        </form>
+    </body>
+</html>
