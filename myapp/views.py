@@ -7,7 +7,7 @@ from .forms import DocumentForm
 def my_view(request):
     message = '上传企业排污数据后点击上方链接下载结果'
     # Handle file upload
-    outpath = ""
+    outurl = ""
     if request.method == 'POST':
         form = DocumentForm(request.POST, request.FILES)
         if form.is_valid():
