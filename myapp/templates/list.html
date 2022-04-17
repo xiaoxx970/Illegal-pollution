@@ -7,11 +7,11 @@
 
     <body>
         <!-- List of uploaded documents -->
-        {% if outpath %}
+        {% if outurl %}
             结果文件:
             <ul>
-                <!-- {% for document in outpath %} -->
-                    <li><a href="{{ outpath }}">{{ outpath }}</a></li>
+                <!-- {% for document in outurl %} -->
+                    <li><a href="{{ outurl }}">{{ outurl }}</a></li>
                 <!-- {% endfor %} -->
             </ul>
         {% else %}

@@ -13,8 +13,11 @@ def my_view(request):
         if form.is_valid():
             newdoc = Document(docfile=request.FILES['docfile'])
             newdoc.save()
-            filepath = Document.objects.all()[0].docfile.path
+            documents = Document.objects.all()
+            filepath = documents[0].docfile.path
+            url = documents[0].docfile.url
             outpath = "/".join(filepath.split("/")[:-1]) + "/ressult.csv"
+            outurl = "/".join(url.split("/")[:-1]) + "/ressult.csv"
             print(f'-i {filepath} -o {outpath}')
             try:
                 code = os.system(f'python kmeans_calc.py -i {filepath} -o {outpath}')
@@ -22,6 +25,7 @@ def my_view(request):
                 message = str(e)
             if code != 0:
                 message = f'Exec script failed, code: {code}'
+            message = outurl
 
             # Redirect to the document list after POST
             return redirect('my-view')
@@ -32,5 +36,5 @@ def my_view(request):
 
 
     # Render list page with the documents and the form
-    context = {'outpath': outpath, 'form': form, 'message': message}
+    context = {'outurl': outurl, 'form': form, 'message': message}
     return render(request, 'list.html', context)
