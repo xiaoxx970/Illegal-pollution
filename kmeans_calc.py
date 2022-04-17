@@ -3,7 +3,7 @@ from matplotlib import rc_params_from_file
 import numpy as np
 import pandas as pd
 
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
 from sklearn.decomposition import KernelPCA as PCA
 from sklearn.preprocessing import StandardScaler, MinMaxScaler

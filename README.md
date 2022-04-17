@@ -3,7 +3,10 @@
 ## 运行方法
 
 ```sh
+pip3 install virtualenv
+virtualenv env
 source env/bin/activate
+pip install -r requirements.txt
 python manage.py runserver
 ```
 
