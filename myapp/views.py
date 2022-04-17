@@ -15,6 +15,7 @@ def my_view(request):
             newdoc.save()
             filepath = Document.objects.all()[0].docfile.path
             outpath = "/".join(filepath.split("/")[:-1]) + "/ressult.csv"
+            print(f'-i {filepath} -o {outpath}')
             try:
                 code = os.system(f'python kmeans_calc.py -i {filepath} -o {outpath}')
             except Exception as e:
