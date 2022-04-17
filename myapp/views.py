@@ -1,6 +1,6 @@
 import os
 from django.shortcuts import redirect, render
-from .models import Document, Results
+from .models import Document
 from .forms import DocumentForm
 
 
