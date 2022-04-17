@@ -28,7 +28,9 @@ def my_view(request):
                 message = f'Exec script failed, code: {code}'
 
             # Redirect to the document list after POST
-            return redirect('my-view')
+            # return redirect('my-view')
+            context = {'outurl': outurl, 'form': form, 'message': message}
+            return render(request, 'list.html', context)
         else:
             message = 'The form is not valid. Fix the following error:'
     else:
