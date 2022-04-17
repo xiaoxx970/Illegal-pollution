@@ -26,7 +26,6 @@ def my_view(request):
                 message = str(e)
             if code != 0:
                 message = f'Exec script failed, code: {code}'
-            message = outurl
 
             # Redirect to the document list after POST
             return redirect('my-view')
