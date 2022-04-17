@@ -19,6 +19,7 @@ def my_view(request):
             outpath = "/".join(filepath.split("/")[:-1]) + "/ressult.csv"
             outurl = "/".join(url.split("/")[:-1]) + "/ressult.csv"
             print(f'-i {filepath} -o {outpath}')
+            print(outurl)
             try:
                 code = os.system(f'python kmeans_calc.py -i {filepath} -o {outpath}')
             except Exception as e:
