@@ -8,6 +8,7 @@ from sklearn.cluster import KMeans
 from sklearn.decomposition import KernelPCA as PCA
 from sklearn.preprocessing import MinMaxScaler, StandardScaler
 
+pd.options.display.float_format = '{:.2f}'.format
 
 def read_data(filename):
     header = ['企业编码','排污口编码','污染物编码','记录时间','污染物浓度','污染物排放量']
@@ -51,8 +52,12 @@ def pca(input_data,outfile):
     # ax.set_ylabel('ys')
     # ax.set_zlabel('zs')
     # plt.show()
-
-    name=np.reshape(input_data.index,(-1,1))
+    name_index = []
+    for ind in input_data.index:
+        list_ind = list(ind)
+        list_ind.append("")
+        name_index.append(",".join(map(str,list_ind)))
+    name=np.reshape(name_index,(-1,1))
     y_kmeans=np.reshape(y_kmeans,(-1,1))
     out=np.concatenate((name,y_kmeans),axis=1)
     np.savetxt(outfile,out,fmt='%s')
