@@ -1,12 +1,13 @@
 import argparse
-from matplotlib import rc_params_from_file
+
+# from matplotlib import rc_params_from_file
 import numpy as np
 import pandas as pd
-
 # import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
 from sklearn.decomposition import KernelPCA as PCA
-from sklearn.preprocessing import StandardScaler, MinMaxScaler
+from sklearn.preprocessing import MinMaxScaler, StandardScaler
+
 
 def read_data(filename):
     header = ['企业编码','排污口编码','污染物编码','记录时间','污染物浓度','污染物排放量']
